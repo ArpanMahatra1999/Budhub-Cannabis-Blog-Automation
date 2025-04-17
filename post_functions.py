@@ -86,7 +86,7 @@ def generate_blog(attributes, techniques):
         - Don't include headline/title.
         
         Respond the complete blog in String format with paragraphs, indexes (if possible), bullets (if possible0 and references in proper format.
-        
+        Your writing should be UNIQUE that doesn't look like copied from other summaries.
         Humanize text and Proofread the blog completely in the end.
     """
     prompt = PromptTemplate(
@@ -117,13 +117,15 @@ def generate_headline(blog, attributes):
         Blog: {blog}
         Keywords: {keywords}
         
-        Headline Writing Tips:
+        Headline Writing Tips (Required):
         - Starting your headline with a number helps headline standing out.
         - Define what the article is about. eg: How to Compose Your Own Song: Songwriting 101
         - Explain your readers why your article is worth reading.
         - Provide a chance to read about how we are being manipulated, deceived, or given the runaround.
         - Think of creative ways to present a “how to” educational article without using "how to". eg: 6 Strategies for Deterring Burglars
         - Readers Should be EXCITED to Read Your Article.
+        
+        Headline Writing Tips (Optional)
         - Best blog post headlines aren’t afraid to sell themselves. So, don't be afraid.
         - Create an Eye-Catching, Unique Title.
         - Think About Your Audience and What Matters to Them.

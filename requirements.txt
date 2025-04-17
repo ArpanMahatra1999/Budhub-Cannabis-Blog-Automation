@@ -5,3 +5,5 @@ langchain-community
 python-dotenv
 bs4
 python-docx
+smtplib
+email
