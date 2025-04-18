@@ -84,7 +84,6 @@ def generate_blog(attributes, techniques):
         - Give headings for dividing blog properly.
         - Use paragraphs and bullets while writing.
         - Add references in the very end.
-        - References should contain descriptive topic and url.
         - Try to use relevant answers (not questions) on the blog.
         - Use keywords to make blog friendlier to readers.
         - Don't use same keywords illogically multiple times.
@@ -92,7 +91,6 @@ def generate_blog(attributes, techniques):
         
         Respond the complete blog in String format.
         Your writing should be UNIQUE that doesn't look like copied from other summaries.
-        Humanize text and Proofread the blog completely in the end.
     """
     prompt = PromptTemplate(
         input_variables=["techniques", "topic", "summaries", "keywords", "references"],
@@ -157,3 +155,40 @@ def generate_headline(blog, attributes):
     )
     chain = prompt | llm
     return chain.invoke({"blog": blog, "keywords": attributes["keywords"]}).content
+
+
+def rewrite_blog(headline, blog, keywords):
+    """Rewrite blog properly based on headline and keywords"""
+    prompt_template = """
+        Rewrite blog relevant to headline and keywords.
+
+        Blog: {blog}
+        Keywords: {keywords}
+
+        Additional details:
+        - Target the headline.
+        - Give attractive starting to the blog like: TELLING QUOTE, ASKING QUESTION, PRESENTING EXAMPLE.
+        - Use relevant examples and true numbers than support claim.
+        - Give headings for dividing blog properly.
+        - Use paragraphs and bullets while writing.
+        - Add references in the very end.
+        - References should contain descriptive topic and url.
+        - Use keywords to make blog friendlier to readers.
+        - Don't use same keywords illogically multiple times.
+        - Don't include headline here.
+        
+        Respond the completely rewritten blog in String format.
+        Humanize text and Proofread the blog completely in the end.
+    """
+    prompt = PromptTemplate(
+        input_variables=["headline", "blog", "keywords"],
+        template=prompt_template
+    )
+    llm = ChatOpenAI(
+        temperature=1.0,
+        max_tokens=1024,
+        model_name=os.getenv("OPENAI_MODEL_NAME"),
+        openai_api_key=os.getenv("OPENAI_API_KEY")
+    )
+    chain = prompt | llm
+    return chain.invoke({"headline": headline, "blog": blog, "keywords": keywords}).content

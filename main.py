@@ -4,7 +4,7 @@ import time
 
 # functions
 from website_functions import analyze_websites
-from post_functions import generate_techniques, generate_blog, generate_headline
+from post_functions import generate_techniques, generate_blog, generate_headline, rewrite_blog
 from email_functions import send_email_with_attachment
 
 if __name__ == "__main__":
@@ -26,6 +26,9 @@ if __name__ == "__main__":
     time.sleep(20)
     headline = generate_headline(blog, attributes)
     print("------------------Headline Created------------------")
+    time.sleep(20)
+    blog = rewrite_blog(headline, blog, attributes["keywords"])
+    print("------------------Blog Rewritten------------------")
 
     # generate document
     send_email_with_attachment(
