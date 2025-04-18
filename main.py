@@ -31,7 +31,7 @@ if __name__ == "__main__":
     send_email_with_attachment(
         sender="arpanmahatra1999ad@gmail.com",
         password=os.getenv("APP_PASSWORD"),
-        receiver="arpanmahatra1999ad@gmail.com",
+        receiver="budhubcan@gmail.com",
         subject=f"Today's blog on {headline}",
         body=f"""
             Hi Budhub,

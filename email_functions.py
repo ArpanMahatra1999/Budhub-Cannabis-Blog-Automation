@@ -9,8 +9,8 @@ from docx import Document
 
 def create_document(headline, description):
     doc = Document()
-    doc.add_heading(headline[1:len(headline)-1], level=1)
-    doc.add_paragraph(description[1:len(description)-1])
+    doc.add_heading(headline, level=1)
+    doc.add_paragraph(description)
     filename = "blog.docx"
     doc.save(filename)
     return filename
