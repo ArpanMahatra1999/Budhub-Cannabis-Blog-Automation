@@ -76,16 +76,19 @@ def generate_blog(attributes, techniques):
         References: {references}
         
         Additional details:
+        - Target the topic.
         - Give attractive starting to the blog.
         - Use novelty technique to write the blog.
-        - Try to use relevant answers (not questions) on the blog.
-        - Target the topic.
         - Try to include the information from those summaries.
+        - Use relevant examples and true numbers than support claim.
+        - Use paragraphs and bullets while writing.
+        - Add references in the very end.
+        - Try to use relevant answers (not questions) on the blog.
         - Use keywords to make blog friendlier to readers.
         - Don't use same keywords illogically multiple times.
         - Don't include headline/title.
         
-        Respond the complete blog in String format with paragraphs, indexes (if possible), bullets (if possible0 and references in proper format.
+        Respond the complete blog in String format.
         Your writing should be UNIQUE that doesn't look like copied from other summaries.
         Humanize text and Proofread the blog completely in the end.
     """
