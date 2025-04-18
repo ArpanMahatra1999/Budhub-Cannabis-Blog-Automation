@@ -83,6 +83,7 @@ def generate_blog(attributes, techniques):
         - Use relevant examples and true numbers than support claim.
         - Use paragraphs and bullets while writing.
         - Add references in the very end.
+        - References should contain descriptive topic and url.
         - Try to use relevant answers (not questions) on the blog.
         - Use keywords to make blog friendlier to readers.
         - Don't use same keywords illogically multiple times.
