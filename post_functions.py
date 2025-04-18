@@ -77,7 +77,7 @@ def generate_blog(attributes, techniques):
         
         Additional details:
         - Target the topic.
-        - Give attractive starting to the blog.
+        - Give attractive starting to the blog like: TELLING QUOTE, ASKING QUESTION, PRESENTING EXAMPLE.
         - Use novelty technique to write the blog.
         - Try to include the information from those summaries.
         - Use relevant examples and true numbers than support claim.
