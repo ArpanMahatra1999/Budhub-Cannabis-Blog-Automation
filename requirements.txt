@@ -5,4 +5,3 @@ langchain-community
 python-dotenv
 bs4
 python-docx
-email
