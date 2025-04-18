@@ -32,6 +32,7 @@ def generate_attributes(blog_lists):
         }}
         
         Additional Details:
+        - Topic should be relevant to write blog into BUDHUB CANNABIS website.
         - Don't use all related urls from same website.
         - Summaries must be rewritten like they don't target blogging company.
         - Keywords must not be company oriented.
