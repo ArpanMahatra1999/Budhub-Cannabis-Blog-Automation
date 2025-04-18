@@ -19,14 +19,14 @@ def generate_attributes(blog_lists):
     prompt_template = """
         We are the Budhub Cannabis in Etobicoke, ON.
         By studying blog lists below, generate the most trending topic (not related to blog writing company) from different websites and 
-        list upto 5 urls from links related to trending topic and their summaries.
+        list upto 3 urls from links related to trending topic and their summaries.
         
         Blog lists: {blog_lists}
         
         Respond in JSON format like this:
         {{
             "topic": "Catchy topic of maximum 10 words."
-            "related_urls": "List of upto 5 links from blog lists related to topic generated above."
+            "related_urls": "List of upto 3 links from blog lists related to topic generated above."
             "related_summaries": "List of summaries related to related urls."
             "keywords": "List of top keywords from related summaries."
         }}
