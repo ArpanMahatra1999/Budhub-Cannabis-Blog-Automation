@@ -18,15 +18,15 @@ if __name__ == "__main__":
     time.sleep(60)
     techniques = generate_techniques(attributes)
     print("------------------Techniques Created------------------")
-    time.sleep(60)
+    time.sleep(30)
 
     # generate blog and headline
     blog = generate_blog(attributes, techniques)
     print("------------------Blog Created------------------")
-    time.sleep(50)
+    time.sleep(30)
     headline = generate_headline(blog, attributes)
     print("------------------Headline Created------------------")
-    time.sleep(60)
+    time.sleep(30)
     blog = rewrite_blog(headline, blog, attributes["keywords"])
     print("------------------Blog Rewritten------------------")
 

@@ -1,6 +1,8 @@
 # general libraries
 import os
 import json
+import time
+
 from dotenv import load_dotenv
 
 # parsing libraries
@@ -64,5 +66,7 @@ def analyze_websites(rss_feeds):
             blog_lists.append({'title': entry.title,
                                'summary': entry.description,
                                'link': entry.link})
+            print("Blog Appended")
+            time.sleep(30)
 
     return generate_attributes(blog_lists)
