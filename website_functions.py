@@ -67,5 +67,6 @@ def analyze_websites(rss_feeds):
                                'summary': entry.description,
                                'link': entry.link})
             print("Blog Appended")
+    print(len(str(blog_lists)))
 
     return generate_attributes(blog_lists)
