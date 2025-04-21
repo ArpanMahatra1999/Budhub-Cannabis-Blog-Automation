@@ -60,7 +60,7 @@ def analyze_websites(rss_feeds):
     for feed_url in rss_feeds:
         feed = feedparser.parse(feed_url)
 
-        for entry in feed.entries[:10]:
+        for entry in feed.entries[:5]:
             blog_lists.append({'title': entry.title,
                                'summary': entry.description,
                                'link': entry.link})
