@@ -98,7 +98,7 @@ def generate_blog(attributes, techniques):
     )
     llm = ChatOpenAI(
         temperature=1.0,
-        max_tokens=512,
+        max_tokens=1024,
         model_name=os.getenv("OPENAI_MODEL_NAME"),
         openai_api_key=os.getenv("OPENAI_API_KEY")
     )
@@ -149,7 +149,7 @@ def generate_headline(blog, attributes):
     )
     llm = ChatOpenAI(
         temperature=1.0,
-        max_tokens=512,
+        max_tokens=1024,
         model_name=os.getenv("OPENAI_MODEL_NAME"),
         openai_api_key=os.getenv("OPENAI_API_KEY")
     )
@@ -184,7 +184,7 @@ def rewrite_blog(headline, blog, keywords):
     )
     llm = ChatOpenAI(
         temperature=1.0,
-        max_tokens=512,
+        max_tokens=1024,
         model_name=os.getenv("OPENAI_MODEL_NAME"),
         openai_api_key=os.getenv("OPENAI_API_KEY")
     )
