@@ -54,6 +54,29 @@ def generate_attributes(blog_lists):
     return json.loads(attributes[attributes.find('{'): attributes.rfind('}')+1])
 
 
+def shorten_description(description):
+    """Generate shortened description"""
+    prompt_template = """
+            Summarize the blog within paragraph of less than 500 characters from description below:
+            
+            Description: {description}
+            
+            Respond completely in string format.
+        """
+    prompt = PromptTemplate(
+        input_variables=["description"],
+        template=prompt_template
+    )
+    llm = ChatOpenAI(
+        temperature=1.0,
+        max_tokens=1024,
+        model_name=os.getenv("OPENAI_MODEL_NAME"),
+        openai_api_key=os.getenv("OPENAI_API_KEY")
+    )
+    chain = prompt | llm
+    return chain.invoke({"description": description}).content
+
+
 def analyze_websites(rss_feeds):
     """
     Gather topic, summaries, urls and keywords from rss_feeds
@@ -64,7 +87,8 @@ def analyze_websites(rss_feeds):
 
         for entry in feed.entries[:3]:
             blog_lists.append({'title': entry.title,
-                               'summary': entry.description,
+                               'summary': shorten_description(entry.description),
                                'link': entry.link})
+            time.sleep(30)
             print("Blog Appended")
     return generate_attributes(blog_lists)
