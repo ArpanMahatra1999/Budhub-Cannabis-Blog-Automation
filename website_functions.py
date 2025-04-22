@@ -20,7 +20,7 @@ def generate_attributes(blog_lists):
     """Generate one topic, multiple urls, summaries and keywords from blog lists"""
     prompt_template = """
         We are the Budhub Cannabis in Etobicoke, ON.
-        By studying blog lists below, generate the most trending topic (not related to blog writing company) from different websites and 
+        By studying blog lists below, generate most trending topic (not related to blog writing company) and 
         list 2-3 urls from links related to trending topic and their summaries.
         
         Blog lists: {blog_lists}
@@ -45,7 +45,7 @@ def generate_attributes(blog_lists):
     )
     llm = ChatOpenAI(
         temperature=1.0,
-        max_tokens=512,
+        max_tokens=1024,
         model_name=os.getenv("OPENAI_MODEL_NAME"),
         openai_api_key=os.getenv("OPENAI_API_KEY")
     )
@@ -62,11 +62,9 @@ def analyze_websites(rss_feeds):
     for feed_url in rss_feeds:
         feed = feedparser.parse(feed_url)
 
-        for entry in feed.entries[:2]:
+        for entry in feed.entries[:3]:
             blog_lists.append({'title': entry.title,
                                'summary': entry.description,
                                'link': entry.link})
             print("Blog Appended")
-    print(len(str(blog_lists)))
-
     return generate_attributes(blog_lists)
